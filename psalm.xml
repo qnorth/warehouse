@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<psalm
+        useDocblockTypes="true"
+        useDocblockPropertyTypes="true"
+        strictBinaryOperands="true"
+        allowPhpStormGenerics="true"
+        allowCoercionFromStringToClassConst="true"
+        allowStringToStandInForClass="false"
+        checkForThrowsDocblock="true"
+        ignoreInternalFunctionFalseReturn="false"
+        ignoreInternalFunctionNullReturn="false"
+        findUnusedVariablesAndParams="true"
+        findUnusedCode="true"
+        ensureArrayStringOffsetsExist="true"
+>
+    <projectFiles>
+        <directory name="src" />
+
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+</psalm>

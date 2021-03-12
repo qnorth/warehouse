@@ -1,0 +1,52 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(['src', 'tests'])
+    ->name('*.php')
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'linebreak_after_opening_tag' => true,
+
+        // spaces
+        'return_type_declaration' => [ 'space_before' => 'none' ],
+        'binary_operator_spaces' => [ 'align_equals' => false, 'align_double_arrow' => false ],
+        'concat_space' => [ 'spacing' => 'one' ],
+
+        // docblock
+        'no_superfluous_phpdoc_tags' => false,
+        'phpdoc_add_missing_param_annotation' => true,
+        'phpdoc_no_empty_return' => false,
+        'phpdoc_indent' => false,
+        'phpdoc_order' => true,
+        'phpdoc_separation' => false,
+        'phpdoc_align' => [ 'align' => 'left' ],
+
+        // etc
+        'no_break_comment' => false,
+        'method_argument_space' => ['ensure_fully_multiline' => false],
+
+        // useless statements
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+
+        // code modification
+        'ordered_class_elements' => true,
+        'array_syntax' => [ 'syntax' => 'short' ],
+        'ternary_to_null_coalescing' => true,
+        'combine_consecutive_unsets' => true,
+        'combine_consecutive_issets' => true,
+        'nullable_type_declaration_for_default_null_value' => true,
+
+        'ordered_imports' => [
+            'sort_algorithm' => 'alpha',
+            'imports_order' => ['class', 'function', 'const'],
+        ],
+
+        'php_unit_method_casing' => ['case' => 'snake_case'],
+    ])
+    ->setFinder($finder)
+    ->setCacheFile(__DIR__.'/.php_cs.cache')
+;

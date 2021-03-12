@@ -1,0 +1,27 @@
+paths:
+    - ./src
+
+layers:
+    - name: Application
+      collectors:
+          - type: className
+            regex: ^App\\Core\\Application\\.*
+
+    - name: Domain
+      collectors:
+          - type: className
+            regex: ^App\\Core\\Domain\\.*
+
+    - name: Infrastructure
+      collectors:
+          - type: className
+            regex: ^App\\Infrastructure\\.*
+
+ruleset:
+    Domain: ~
+    Application:
+        - Domain
+    Infrastructure:
+        - Domain
+        - Application
+        - Infrastructure
